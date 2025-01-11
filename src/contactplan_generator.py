@@ -23,6 +23,16 @@ params = {
     },
 }
 
+def count_contacts(contacts, link_params):
+    contact_counts = {pair: 0 for pair in link_params.keys()}
+    for contact in contacts:
+        from_node, to_node = contact['fromNode'], contact['toNode']
+        if (from_node, to_node) in contact_counts:
+            contact_counts[(from_node, to_node)] += 1
+        elif (to_node, from_node) in contact_counts:
+            contact_counts[(to_node, from_node)] += 1
+    return contact_counts
+
 def generate_contacts(total_time, link_params, total_contacts):
     contacts = []
     max_node = max(max(pair) for pair in link_params.keys())
@@ -91,6 +101,9 @@ contacts = generate_contacts(params['total_time'], params['link_params'], params
 # Generate range data
 ranges = generate_ranges(contacts, params['link_params'])
 
+# Count contacts for each node pair
+contact_counts = count_contacts(contacts, params['link_params'])
+
 # Output contact file
 contact_file = "results/contacts.txt"
 with open(contact_file, "w") as f:
@@ -104,3 +117,7 @@ with open(contact_file, "w") as f:
 print(f"Total contacts and ranges generated: {len(contacts)}")
 print(f"Contact file saved as: {contact_file}")
 
+# Display contact counts for each node pair
+print("\nContact counts for each node pair:")
+for pair, count in contact_counts.items():
+    print(f"Nodes {pair[0]} and {pair[1]}: {count} contacts")

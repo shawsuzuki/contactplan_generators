@@ -12,6 +12,6 @@
 
 pythonの標準ライブラリを用いているだけなので特にパッケージは不要
 ```
-python3 contact_genelater.py
+python3 main.py
 ```
 だけ
