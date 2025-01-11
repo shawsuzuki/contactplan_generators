@@ -12,7 +12,7 @@ def execute_script(script_name):
         print(f"File not found: {e}")
 
 # Execute contactplan_generater.py
-execute_script('src/contactplan_generater.py')
+execute_script('src/contactplan_generator.py')
 
 # Execute get_contactid_todelete.py
 execute_script('src/get_contactid_todelete.py')

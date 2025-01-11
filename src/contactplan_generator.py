@@ -3,8 +3,8 @@ from itertools import combinations
 
 # Parameters
 params = {
-    "total_time": 1000,     # Simulation time (seconds)
-    "total_contacts": 200,  # Total number of contacts
+    "total_time": 10000,     # Simulation time (seconds)
+    "total_contacts": 1000,  # Total number of contacts
     "link_params": {
         ## (nodeA, nodeB):
         ## (data rate base (Mbps), data rate variation%, 
