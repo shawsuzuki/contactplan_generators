@@ -1,0 +1,1 @@
+dtnsim.central.contactIdsToDelete="2 22 50 86 96 136 166 200 210 212 250 302 324 330 332"
